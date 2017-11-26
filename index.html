@@ -1,21 +1,313 @@
-<!doctype html>
-<html lang="en">
+<html>
   <head>
-    <title>Belajar</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Qolamun</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+      @font-face{
+        font-family: navfont;
+        src: url(font.ttf);
+      }
+      body{
+        margin: 0px;
+      }
+      nav{
+        height: auto; width: 100%;
+        position: fixed;
+        z-index: 1;
+        font-family: navfont;
+        text-decoration-color: white;
+        background: #737373;
+      }
+
+      nav *{
+        display: inline-block;
+        height: 23px;
+        line-height: 23px;
+        vertical-align: middle;
+        padding: 11px 23px;
+      }
+
+      nav *:hover{
+        background: #7fdde7;      /*#7fdde7 */
+      }
+
+      a{
+        position: relative;
+        text-decoration: none;
+        color: white;
+      }
+
+      main{
+        height: 100%; width: 100%;
+        position: relative;
+        z-index: 0;
+        text-align: center;
+      }
+
+      #patokan{
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+      #hi{
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+
+      #portofolio{
+        position: absolute;
+        left: 45%;
+        bottom: 0px;
+      }
+
+      #portofolio:hover{
+        opacity: 0.7;
+      }
+/*=====================================================*/
+      #presentasi{
+        position: absolute;
+        height: 0%; width: 100%;
+        margin: 0px;
+        bottom: 0px;
+
+        animation-name: rise;
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-play-state: paused;
+
+        -webkit- animationduration: 1s;
+
+      }
+      .app{
+        height: 100%; width: 33%;
+        text-align: center;
+      }
+
+      .no1{
+        display: inline-block;
+        position: absolute;
+        left: 0px;
+        width: 33%;
+        background: #fdc689;
+        z-index: 1;
+      }
+
+      .no2{
+        position: absolute;
+        display: inline-block;
+        left: 0px;
+        width: 100%;
+        background: #e8e8e8;
+        z-index: 0;
+      }
+
+      .no3{
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        width: 33%;
+        background: #636363;
+        z-index: 1;
+      }
+
+      .no1, .no2, .no3{
+        animation-duration: 1s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-play-state: paused;
+        -webkit- animation-name: gradasi;
+        -webkit- animation-duration: 1s;
+      }
+
+      .logo_app{
+        height: 33%;
+      }
+
+      @keyframes rise {
+        0% { height: 0%; }
+        100% {  height: 100%; }
+      }
+
+      @keyframes fall {
+        0% { height: 100%; }
+        100% { height: 0%; }
+      }
+
+      @keyframes dilate0 {
+        0% { width: 33%; }
+        100% { width: 95%; }
+      }
+
+      @keyframes adaptAll{
+        0% { width: 33%; }
+        100% { width: 2.5%; }
+      }
+
+      @keyframes dilate1 {
+        0% { width: 2.5%; }
+        100% { width: 95%; }
+      }
+
+      @keyframes adapt{
+        0% { width: 95%; }
+        100% { width: 2.5%; }
+      }
+
+      @keyframes constrict1{
+        0% { width: 91%; }
+        100% { width: 33%; }
+      }
+
+      @keyframes constrict2{
+        0% { width: 91%; }
+        100% { width: 34%; }
+      }
+
+      @keyframes disappear{
+        0% { opacity: 100%; }
+        100% { opacity: 0%; visibility: hidden; }
+      }
+
+      /*crome, safari, opera*/
+      /*@-webkit-keyframes gradasi {
+        from{ background: green; }
+        to{ background: blue; }
+      }*/
+
+
+    </style>
   </head>
-  <body>
-    <h1>Ahlan wa sahlan</h1>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="jquery/jquery-3.2.1.slim.min.js"></script>
-    <script src="jquery/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+  <body>
+    <nav>
+      <img src="logo.png" alt="qolamun">
+      <a href="#">About</a>
+      <a href="#">Portofolio</a>
+    </nav>
+
+    <header>
+
+    </header>
+
+    <main>
+      <span id="patokan"></span>
+      <img id="hi" src="main.png" alt="main">
+
+      <img id="portofolio" src="portofolio.png" alt="portofolio">
+
+      <div id="presentasi">
+        <div id="karya">
+          <div class="app no1">
+            <span id="patokan"></span>
+            <img class="logo_app"src="saakat.png" alt="saakat logo">
+          </div><div class="app no2">
+            <span id="patokan"></span>
+            <img class="logo_app" src="ngaskep.png" alt="saakat logo">
+
+          </div><div class="app no3">
+            <span id="patokan"></span>
+            <img class="logo_app" src="medict.png" alt="saakat logo">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+    <script>
+      var appShown = false;
+
+      var body = document.getElementsByTagName('body')[0];
+      var portofolio = document.getElementById('portofolio');
+      var presentasi = document.getElementById('presentasi');
+      var nav = document.getElementsByTagName('nav')[0];
+      var app = document.getElementsByClassName('app');
+      var logo_app = document.getElementsByClassName('logo_app');
+      var link = document.getElementsByTagName('a');
+      var hi = document.getElementById('hi')
+
+      function showPortofolio(){
+        if(!appShown){
+          presentasi.style.animationName = 'rise';
+          presentasi.style.animationPlayState = "running";
+
+          app[0].style.animationName = 'dilate0';
+          app[0].style.animationPlayState = 'running';
+          app[2].style.animationName = 'adaptAll';
+          app[2].style.animationPlayState = 'running';
+          appShown = true;
+        }
+      }
+
+      function hidePortofolio(){
+        if(appShown){
+          presentasi.style.animationName = 'fall';
+          presentasi.style.animationPlayState = 'running';
+          appShown = false;
+        }
+      }
+
+
+      function dilate(no){
+        if(no==0){
+          if(getWidthPrecentage(app[2].offsetWidth)>=95){
+            app[2].style.animationName = 'adapt';
+            app[2].style.animationPlayState = 'running';
+            if(getWidthPrecentage(app[no].offsetWidth)<=3){
+              app[no].style.animationName = 'dilate1';
+              app[no].style.animationPlayState = 'running';
+            }
+          }else if(getWidthPrecentage(app[no].offsetWidth)<=3){
+            app[no].style.animationName = 'dilate1';
+            app[no].style.animationPlayState = 'running';
+          }
+        }else if(no==1){
+          app[0].style.animationName = 'adapt';
+          app[0].style.animationPlayState = 'running';
+          if(getWidthPrecentage(app[2].offsetWidth)>33){
+            app[2].style.animationName = 'adapt';
+            app[2].style.animationPlayState = 'running';
+          }
+
+        }else if(no==2){
+          if(getWidthPrecentage(app[0].offsetWidth)>=95){
+            app[0].style.animationName = 'adapt';
+            app[0].style.animationPlayState = 'running';
+            if(getWidthPrecentage(app[no].offsetWidth)<=3){
+              app[no].style.animationName = 'dilate1';
+              app[no].style.animationPlayState = 'running';
+            }
+          }else if(getWidthPrecentage(app[no].offsetWidth)<=3){
+            app[no].style.animationName = 'dilate1';
+            app[no].style.animationPlayState = 'running';
+          }
+
+        }
+      }
+
+      function linkClicked(){
+        alert(getWidthPrecentage(app[0].offsetWidth));
+      }
+      function getWidthPrecentage(width){
+          return Math.round((width/body.offsetWidth)*100);
+      }
+      function nothing(){
+
+      }
+      portofolio.onclick = showPortofolio;
+      link[1].onclick = showPortofolio;
+      nav.onmouseover = hidePortofolio;
+
+      app[0].onmouseover = function(){ dilate(0)};
+      app[1].onmouseover = function(){ dilate(1)};
+      app[2].onmouseover = function(){ dilate(2)};
+      link[0].onclick = linkClicked;
+    </script>
   </body>
+
 </html>
